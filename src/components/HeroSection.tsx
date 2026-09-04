@@ -7,9 +7,10 @@ const roles = ["Full Stack Developer", "Backend Systems Engineer", "API Architec
 
 export default function HeroSection() {
   const [roleIndex, setRoleIndex] = useState(0);
-  const [displayed, setDisplayed] = useState("");
   const [deleting, setDeleting] = useState(false);
   const [charIndex, setCharIndex] = useState(0);
+
+  const displayed = roles[roleIndex].slice(0, charIndex);
 
   useEffect(() => {
     const current = roles[roleIndex];
@@ -21,12 +22,13 @@ export default function HeroSection() {
       timeout = setTimeout(() => setDeleting(true), 2000);
     } else if (deleting && charIndex > 0) {
       timeout = setTimeout(() => setCharIndex((i) => i - 1), 30);
-    } else if (deleting && charIndex === 0) {
-      setDeleting(false);
-      setRoleIndex((i) => (i + 1) % roles.length);
+    } else {
+      timeout = setTimeout(() => {
+        setDeleting(false);
+        setRoleIndex((i) => (i + 1) % roles.length);
+      }, 0);
     }
 
-    setDisplayed(current.slice(0, charIndex));
     return () => clearTimeout(timeout);
   }, [charIndex, deleting, roleIndex]);
 
