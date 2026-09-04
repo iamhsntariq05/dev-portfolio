@@ -1,7 +1,20 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:figma-portfolio-ten.vercel.app)"
+      "WebFetch(domain:figma-portfolio-ten.vercel.app)",
+      "PowerShell(New-Item -ItemType Directory -Path \"c:\\\\Users\\\\PMLS\\\\Documents\\\\ExactSolutions\\\\portfolio\\\\src\\\\components\" -Force)",
+      "PowerShell(Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing)",
+      "PowerShell($r = Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing; if \\($r.Content -match \"Waqas Ahmad\"\\) { \"Name found\" } else { \"Name NOT found\" }; if \\($r.Content -match \"Full Stack Developer\"\\) { \"Role found\" } else { \"Role NOT found\" }; if \\($r.Content -match \"Available for work\"\\) { \"Status found\" } else { \"Status NOT found\" })",
+      "PowerShell(Get-Process -Name \"node\" -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force)",
+      "PowerShell(netstat -ano)",
+      "PowerShell(cd \"c:\\\\Users\\\\PMLS\\\\Documents\\\\ExactSolutions\\\\portfolio\"; $env:NEXT_TELEMETRY_DISABLED=1; npm run dev)",
+      "PowerShell(Add-MpPreference -ExclusionPath \"c:\\\\Users\\\\PMLS\\\\Documents\\\\ExactSolutions\\\\portfolio\" -ErrorAction SilentlyContinue)",
+      "PowerShell(cd \"c:\\\\Users\\\\PMLS\\\\Documents\\\\ExactSolutions\\\\portfolio\"; $env:NEXT_TELEMETRY_DISABLED=1; $env:NEXT_PRIVATE_DISABLE_CUSTOM_TRACES=1; npm run dev)",
+      "PowerShell(Start-Sleep -Seconds 20; $status = \\(Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -ErrorAction SilentlyContinue\\).StatusCode; Write-Output \"HTTP $status\"; Get-Content \"C:\\\\Users\\\\PMLS\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-PMLS-Documents-ExactSolutions-portfolio\\\\08193fa1-79b8-4fd3-8be0-b15888b02244\\\\tasks\\\\bnet28vf0.output\" | Select-Object -Last 3)",
+      "WebFetch(domain:izzhsnportfolio.netlify.app)",
+      "PowerShell(Invoke-WebRequest -Uri \"https://izzhsnportfolio.netlify.app\" -UseBasicParsing)",
+      "PowerShell($js = Invoke-WebRequest -Uri \"https://izzhsnportfolio.netlify.app/static/js/main.d72369ae.js\" -UseBasicParsing | Select-Object -ExpandProperty Content; $js.Length)"
     ]
   }
 }
